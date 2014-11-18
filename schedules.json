@@ -1,0 +1,94 @@
+{
+    "schedules": [
+        {
+            "date": "2014-08-04",
+            "schArr": [
+                {
+                    "name": "Agent1",
+                    "id": "tepperson",
+                    "schedule": "oooooooooooooooooooooooooooooooooooooooooooooooo"
+                },
+                {
+                    "name": "Agent2",
+                    "id": "chrcollier",
+                    "schedule": "ooooooooooooooooccccccccccllccccoooooooooooooooo"
+                },
+                {
+                    "name": "Agent3",
+                    "id": "jhayth",
+                    "schedule": "ooooooooooooooooppppppppllppppppoooooooooooooooo"
+                },
+                {
+                    "name": "Agent4",
+                    "id": "szmina",
+                    "schedule": "ooooooooooooooooooooooooppccccccbcllccccoooooooo"
+                },
+                {
+                    "name": "Agent5",
+                    "id": "eengle",
+                    "schedule": "ooooooooooooooooooooooooooooooooccccccppllcccccc"
+                },
+                {
+                    "name": "Agent6",
+                    "id": "cpryor",
+                    "schedule": "oooooooooooooooooooooooooooooooooooooooooooooooo"
+                },
+                {
+                    "name": "Agent7",
+                    "id": "acarter",
+                    "schedule": "ooooooooooooooooooooooooooooooooccccccppccllcccc"
+                },
+                {
+                    "name": "Agent8",
+                    "id": "rfenimore",
+                    "schedule": "ooooooooooooooooooooooooooooooooppppppllpppppppp"
+                }
+            ]
+        },
+        {
+            "date": "2014-08-05",
+            "schArr": [
+                {
+                    "name": "Agent1",
+                    "id": "tepperson",
+                    "schedule": "bbbbbbbbbbllbbbboooooooooooooooooooooooooooooooo"
+                },
+                {
+                    "name": "Agent2",
+                    "id": "chrcollier",
+                    "schedule": "ooooooooooooooooccccccccccllccccoooooooooooooooo"
+                },
+                {
+                    "name": "Agent3",
+                    "id": "jhayth",
+                    "schedule": "ooooooooooooooooppppppppllppppppoooooooooooooooo"
+                },
+                {
+                    "name": "Agent4",
+                    "id": "szmina",
+                    "schedule": "ooooooooooooooooooooooooppccccccbpllppppoooooooo"
+                },
+                {
+                    "name": "Agent5",
+                    "id": "eengle",
+                    "schedule": "oooooooooooooooooooooooooooooooobbbbbbbbbbllbbbb"
+                },
+                {
+                    "name": "Agent6",
+                    "id": "cpryor",
+                    "schedule": "ooooooooooooooooooooooooooooooooccccccllcccccccc"
+                },
+                {
+                    "name": "Agent7",
+                    "id": "acarter",
+                    "schedule": "ooooooooooooooooooooooooooooooooppppppppllpppppp"
+                },
+                {
+                    "name": "Agent8",
+                    "id": "rfenimore",
+                    "schedule": "ooooooooooooooooooooooooooooooooccccccccppllcccc"
+                }
+            ]
+        }
+    ]
+}
