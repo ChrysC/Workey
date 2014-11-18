@@ -1,0 +1,82 @@
+
+	ul .first {
+		width: 16%;
+		min-width: auto;
+	}
+	ul li {
+		float: left;
+		height: 18px;
+		text-align: center;
+		width: 3.5%;
+	}
+	.schHour li {
+		padding: 3px 0 3px 0;
+	}
+	.half {
+		width: 1.75%;
+		cursor: pointer;
+		text-align: center;
+	}
+	.altName li {
+		background-color: #EEE;
+	}
+	.title {
+		text-align: center;
+		color: #666;
+		font-size: 15px;
+	}
+	.date {
+		text-align: center;
+		font-weight: bold;
+		color: #333;
+		padding: 15px;
+	}
+	.c {
+		background-color: blue !important;
+		color: white;
+	}
+	.c:after {
+		content: "C";
+	}
+	.o {
+		background-color: white; 
+	}
+	.o:after {
+		content: "-";
+	}
+	.p {
+		background-color: green !important;
+		color: white;
+	}
+	.p:after {
+		content: "P";
+	}
+	.l {
+		background-color: black !important;		
+		color: white;
+	}
+	.l:after {
+		content: "L";
+	}
+	.b {
+		background-color: red !important;
+		color: white;
+	}
+	.b:after {
+		content: "B";
+	}
+	.m {
+		background-color: brown !important;
+		color: white;
+	}
+	.m:after {
+		content: "M";
+	}
+
+/* Extras */
+	.center {
+		text-align: center;
+	}
+	.clear {
+		clear: both;
+	}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+
+Name:
+	Wiley Technical Support Schedules
+Purpose:
+	TBA
+
+Last Updated:
+	11/11/2014
+
+Developer:
+	Chrys Collier
+		Tier I Rep - 18733, Product Tech Support
+		Room: 3048 Indianapolis
+		chrcollier@wiley.com
+		x23832
+
+-->
+	<head>
+		<title>Workey</title> <!-- Document Title -->
+		<meta charset="utf-8">
+		
+		<!-- Include directory should be ./inc -->
+		<script src="./inc/jquery.js"></script>
+		<script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
+		<script src="./inc/main.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="./inc/style.css">
+	</head>
+
+	<body>
+		<h1 class="header">Wiley T1 CTSG Schedules</h1> <!-- PAGE HEADER -->
+
+		<div class="date">
+			<h2 class="title-name">
+				<a href="" class="changeDate prevDay" title="" onclick="return false;">Previous</a>&nbsp;-
+				<input type="text" id="datepicker" placeholder="(Loading Date)" onclick="blur();" />&nbsp;-
+				<a href="" class="changeDate nextDay" title="" onclick="return false;">Next</a>
+			</h2>
+				
+
+		</div>
+
+		<div class="clear"></div>
+
+		<div id="scheduleList"></div>
+
+		<div class="clear"></div>
+
+		<div class="footer">
+			<div class="options">
+				<a href="" class="changeDate today" title="" onclick="return false;">Today's Schedule</a>&nbsp;|
+				<input type="text" id="datepicker" onclick="blur();" />&nbsp;|
+				<a href="" onclick="return false;">Request PTO</a>
+			</div>
+		</div>
+	
+<script>
+	$( document ).ready(function() {
+		var d = new Date();
+		var selDate = d.toJSON().split('T')[0];
+		var dispDate = d.toDateString().slice(0,15);
+		var prevDate = new Date(d.getFullYear(),d.getMonth(),d.getDate()-1);
+		var nextDate = new Date(d.getFullYear(),d.getMonth(),d.getDate()+1);
+			prevDate = prevDate.toJSON().split('T')[0];
+			nextDate = nextDate.toJSON().split('T')[0];
+			fillSchedules(selDate);
+			$('.date .schDate').html(dispDate);
+			$("#datepicker").attr('placeholder', dispDate);
+			$('.nextDay').attr('title', nextDate);
+			$('.prevDay').attr('title', prevDate);
+			$('.today').attr('title', selDate);
+			$("#datepicker").val('');
+
+		setInterval(function() {highlightHour();},10000);
+
+		$('.changeDate').click(function() {
+			var newDate = $(this).attr('title');
+				changeDates(newDate);
+		});
+
+		$(function() {
+			$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+				return false;
+		});
+		
+		$('#datepicker').change(function() {
+			var newDate = $(this).val();
+				changeDates(newDate);
+		});
+		
+		function changeDates(newDate) {
+			var ymdDate = newDate.split('-');
+			var year = ymdDate[0];
+			var month = ymdDate[1]-1;
+			var day = ymdDate[2];
+			var schDate = new Date(year,month,day);
+			var dispDate = schDate.toDateString().slice(0,15);
+			var prevDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()-1);
+			var nextDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()+1);
+				prevDate = prevDate.toJSON().split('T')[0];
+				nextDate = nextDate.toJSON().split('T')[0];
+				$('.date .schDate').html(dispDate);
+				$("#datepicker").attr('placeholder', dispDate);
+				$('.prevDay').attr('title', prevDate);
+				$('.nextDay').attr('title', nextDate);
+				fillSchedules(newDate);
+		}
+
+		function output_hoursHeader() {
+			var a,b,c,val,thisClass,listOut;
+			var listOne = '<ul class="friendly-time">';
+			var listTwo = '<ul class="hours title-row">';
+
+// Loop creates friendly display time
+				for (a=0;a<24;a++) {
+					if (a < 13) {
+						if (a === 0) {
+							val = '<li class="first '+a+'">12:00';
+						} else {
+							val = '<li class="'+a+'">'+a+':00';
+						}
+					} else {
+						val = Math.abs(a-12);
+						val = val+':00';
+						val = '<li class="'+a+'">'+val+'';
+					}
+					if (a < 12) {
+						val += ' AM</li>';
+					} else {
+						val += ' PM</li>';
+					}
+					listOne += val;
+					val = '';
+				}
+				listOne += '</ul>';
+
+// Loop creates 00/30 display time
+				for (b=0;b<24;b++) {
+					if (b===0) { thisClass = 'first '; }
+					for (c=0;c<=1;c++) {
+						if (c%2 === 1) { val = '30'; thisClass += b+'-5'; } else { val = '00'; thisClass += b; } // Checks if half hour
+						val = '<li class="'+thisClass+'">'+val+'</li>'; // Creates list item
+						listTwo += val; // Appends list item
+						thisClass = ''; // Resets the Class
+					}
+				}
+
+// Merges the two list items
+				listTwo += '</ul>';
+				listOut = listOne+listTwo;
+				return listOut;
+		}
+		
+		function highlightHour() {
+			var d = new Date();
+			var hour = d.getHours();
+			var min = d.getMinutes();
+			$('.hours li').each(function() {
+				$(this).css('background-color','');
+				if($(this).hasClass(hour)) {
+					if(min<30) {
+						$(this).css('background-color','yellow');
+					}
+				}
+				if($(this).hasClass(hour+'-5')) {
+					if(min>=30) {
+						$(this).css('background-color','yellow');
+					}
+				}
+			});
+			$('.friendly-time li').each(function() {
+				if($(this).hasClass(hour)) {
+					$(this).css('background-color','yellow');
+				}
+				else {
+					$(this).css('background-color','');
+				}
+			});
+		}
+		
+		function fillSchedules(selDate) {
+				var schJSON = new Firebase('https://wiley.firebaseio.com/schedules');
+
+				// Retrieve the element where we will be putting schedule entries
+				var schList = document.getElementById('scheduleList');
+				schList.innerHTML = '<h2 class="title-name">Loading. Please wait...</h2>';
+				
+				// Loop control variables
+				var i,s,x,z,val;
+				
+				schJSON.on('value', function(snapshot) {
+					// code to handle new value.
+					var schRef = snapshot.val();
+					for (i = 0; i < schRef.length; i++) {
+					// Match the date to the selected date
+						if (schRef[i].date === selDate) {
+						
+						schList.innerHTML = output_hoursHeader()+'<div class="clear"></div>';
+							for (s = 0; s < schRef[i].schArr.length; s++) {
+								var empName = schRef[i].schArr[s].name;
+								var empId = schRef[i].schArr[s].id;
+								if(s%2 == 1) {
+									var schEntry = '<span class="name">'+empName+'</span><ul class="'+empId+' hours altName">';
+								} else {
+									var schEntry = '<span class="name">'+empName+'</span><ul class="'+empId+' hours">';
+								}
+								for (x = 0; x < schRef[i].schArr[s].schedule.length; x++) {
+									if(schRef[i].schArr[s].schedule[x] === 'o') { val = '-'; } else { val = schRef[i].schArr[s].schedule[x].toUpperCase(); }
+									if (x%2 == 1) {
+										z = x/2-.5;
+										z += '-5';
+									} else {
+										z=x/2
+									}
+									if (x === 0) {
+										schEntry += '<li class="first '+z+' '+schRef[i].schArr[s].schedule[x]+'">'+val+'</li>';
+									} else {
+										schEntry += '<li class="'+z+' '+schRef[i].schArr[s].schedule[x]+'">'+val+'</li>';
+									}
+								}
+								schEntry += '</ul><div class="clear"></div>';
+								schList.innerHTML = schList.innerHTML+schEntry;
+							}
+						highlightHour();
+						}
+					}
+					if (schList.innerHTML === '<h2 class="title-name">Loading. Please wait...</h2>') {
+						schList.innerHTML = '<h2 class="title-name">No schedules are available for this date.</h2>';
+					}
+				});
+			}
+	});
+</script>
+	</body>
+</html>

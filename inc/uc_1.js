@@ -1,0 +1,347 @@
+schJSON = new Firebase('https://wiley.firebaseio.com/schedules');
+
+function createDate(schJSON) {
+	var newSch = document.getElementById('newSch').val();
+
+	if (checkDate(newSch, schJSON) === false) {
+		schJSON.push({date:newSch, schArr:[]});
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function addSchedule(name, schDates, schArr, schJSON) {
+	schJSON.on('value', function(snapshot) {
+		var schRef = snapshot.val();
+		
+		for (var x = 0; x < schDates.length; x++) {
+			if (createDate(schJSON) === true) {
+				
+			}
+		}
+		for (var i = 0; i < schRef.length; i++) {
+			if(schRef.date === newSch) {
+				dateExists = true;
+					break;
+			}
+			schJSON.push({date:newSch, schArr:[]});
+		}
+	}
+}
+
+function checkDate(date, schJSON) {
+	schJSON.on('value', function(snapshot) {
+		var schRef = snapshot.val();
+		var newSch = document.getElementById('newSch').val();
+		var dateExists = false;
+
+		for (var i = 0; i < schRef.length; i++) {
+			if(schRef.date === newSch) {
+				dateExists = true;
+			}
+		}
+		return dateExists;
+	}
+}
+
+
+
+
+					<div id="scheduleList">
+					</div>
+					<div id="admin">
+						<ul class="schHour">
+							<li class="first name">Admin Test</li>
+							<div class="clear"></div>
+						</ul>
+						<ul class="schHour" id="custom[0]">
+							<li class="first name">Not Scheduled</li>
+							<li class="half o" id="0"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+						</ul>
+							<div class="clear"></div>
+						<ul class="schHour" id="custom[1]">
+							<li class="first name">Phones</li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half l"></li><li class="half l"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half p"></li><li class="half p"></li>
+							<li class="half p"></li><li class="half p"></li>
+						</ul>
+							<div class="clear"></div>
+						<ul class="schHour" id="custom[2]">
+							<li class="first name">Chats</li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half l"></li><li class="half l"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half c"></li><li class="half c"></li>
+							<li class="half c"></li><li class="half c"></li>
+						</ul>
+							<div class="clear"></div>
+						<ul class="schHour" id="custom[3]">
+							<li class="first name">Balanced</li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half l"></li><li class="half l"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+						</ul>
+							<div class="clear"></div><br />
+						<ul class="schHour" id="day[0]">
+							<li class="first name">Sunday Default</li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half o"></li><li class="half o"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half l"></li><li class="half l"></li>
+							<li class="half b"></li><li class="half b"></li>
+							<li class="half b"></li><li class="half b"></li>
+						</ul>
+					</div>
+					<div class="footer">
+						<a href="" onclick="return false;">Admin</a>
+					</div>
+				</div>
+			
+		</div>
+		<!-- CONTAINER END -->
+		
+		<!-- DO NOT MODIFY -->
+		<script src="./inc/main.js"></script>
+		<script>
+			$( document ).ready(function() {
+				var d = new Date();
+				var selDate = d.toJSON().split('T')[0];
+				var dispDate = d.toDateString().slice(0,15);
+				var prevDate = new Date(d.getFullYear(),d.getMonth(),d.getDate()-1);
+				var nextDate = new Date(d.getFullYear(),d.getMonth(),d.getDate()+1);
+				prevDate = prevDate.toJSON().split('T')[0];
+				nextDate = nextDate.toJSON().split('T')[0];
+				//fillSchedules(selDate);
+				$('.date .schDate').html(dispDate);
+				$('.nextDay').attr('title', nextDate);
+				$('.prevDay').attr('title', prevDate);
+				$('.today').attr('title', selDate);
+				$("#datepicker").val('');
+			
+				$('.changeDate').click(function() {
+					var newDate = $(this).attr('title');
+					var ymdDate = newDate.split('-');
+					var year = ymdDate[0];
+					var month = ymdDate[1]-1;
+					var day = ymdDate[2];
+					var schDate = new Date(year,month,day);
+					var dispDate = schDate.toDateString().slice(0,15);
+					var prevDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()-1);
+					var nextDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()+1);
+					prevDate = prevDate.toJSON().split('T')[0];
+					nextDate = nextDate.toJSON().split('T')[0];
+					$('.date .schDate').html(dispDate);
+					$('.nextDay').attr('title', nextDate);
+					$('.prevDay').attr('title', prevDate);
+					//fillSchedules(newDate);
+				});
+				
+				$(function() {
+					$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+					return false;
+				});
+				
+				$('.half').click(function() {
+					/*
+						o = off
+						p = phones
+						l = lunch
+						b = balanced
+						m = meeting
+						r = PTO
+						t = training
+					*/
+					var schClass = $(this).attr('class');
+					var custom = 'oooooooooooooooooooooooooooooooooooooooooooooooo';
+					switch(schClass) {
+						case 'half o':
+							$(this).attr('class','half p');
+							break;
+						case 'half p':
+							$(this).attr('class','half c');
+							break;
+						case 'half c':
+							$(this).attr('class','half b');
+							break;
+						case 'half b':
+							$(this).attr('class','half l');
+							break;
+						case 'half l':
+							$(this).attr('class','half m');
+							break;
+						case 'half m':
+							$(this).attr('class','half o');
+							break;
+					}
+					console.log(custom);
+					var newValue = $(this).attr('class').split(' ')[1];
+					var id = $(this).attr('id');
+					var custom = custom.substring(0, id) + newValue + custom.substring(id+1);
+					console.log(custom);
+				});
+				
+				$('#datepicker').change(function() {
+					var newDate = $(this).val();
+					var ymdDate = newDate.split('-');
+					var year = ymdDate[0];
+					var month = ymdDate[1]-1;
+					var day = ymdDate[2];
+					var schDate = new Date(year,month,day);
+					var dispDate = schDate.toDateString().slice(0,15);
+					var prevDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()-1);
+					var nextDate = new Date(schDate.getFullYear(),schDate.getMonth(),schDate.getDate()+1);
+					prevDate = prevDate.toJSON().split('T')[0];
+					nextDate = nextDate.toJSON().split('T')[0];
+					$('.date .schDate').html(dispDate);
+					$('.nextDay').attr('title', nextDate);
+					$('.prevDay').attr('title', prevDate);
+					//fillSchedules(newDate);
+					$("#datepicker").val('');
+				});
+				/*
+				function fillSchedules(selDate) {
+					var schJSON = new Firebase('https://wiley.firebaseio.com/schedules');
+
+					// Retrieve the element where we will be putting schedule entries
+					var schList = document.getElementById('scheduleList');
+					schList.innerHTML = "";
+					
+					// Loop control variables
+					var i,s,x;
+					
+					schJSON.on('value', function(snapshot) {
+						// code to handle new value.
+						var schRef = snapshot.val();
+						for (i = 0; i < schRef.length; i++) {
+						// Match the date to the selected date
+							if (schRef[i].date === selDate) {
+							schList.innerHTML = "";
+								for (s = 0; s < schRef[i].schArr.length; s++) {
+									var empName = schRef[i].schArr[s].name;
+									var empId = schRef[i].schArr[s].id;
+									if(s%2 == 1) {
+									var schEntry = '<ul class="'+empId+' schHour altName"><li class="first name">'+empName+'</li>';
+									}
+									else {
+									var schEntry = '<ul class="'+empId+' schHour"><li class="first name">'+empName+'</li>';
+									}
+									for (x = 0; x < schRef[i].schArr[s].schedule.length; x++) {
+										schEntry += '<li class="half hh'+x+' '+schRef[i].schArr[s].schedule[x]+'"></li>';
+									}
+									schEntry += '</ul><div class="clear"></div>';
+									schList.innerHTML = schList.innerHTML+schEntry;
+								}
+							}
+						}
+						if (schList.innerHTML === "") {
+							schList.innerHTML = '<p style="text-align: center;padding:15px;font-weight:bold;">No schedules are available for this date.</p>';
+						}
+					});
+				}*/
+			});
+		</script>
+		<!-- DO NOT MODIFY -->

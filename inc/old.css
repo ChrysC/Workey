@@ -1,0 +1,220 @@
+/* CSS RESET: DO NOT MODIFY */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}input,select{vertical-align:middle}
+/* CSS RESET: DO NOT MODIFY */
+/* Body */
+	body {
+		margin: 0;
+		padding: 0;
+		font-size: 10px;
+		font-family:"Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+		color: #333;
+		background-color: #fff;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+/* Defaults */
+	a:link, a:visited {
+		color: #5b80b2;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #036;
+	}
+	a img {
+		border: none;
+	}
+
+	h1 {
+		font-weight: bold;
+		text-align: center;
+		padding: 25px 0 15px 0;
+		font-size: 18px;
+		color: #666;
+	}
+	ul {
+		list-style: none;
+		white-space: nowrap;
+	}
+	hr {
+		clear: both;
+		color: #eee;
+		height: 1px;
+		border: none;
+		margin: 0;
+		padding: 0;
+		font-size: 1px;
+		line-height: 1px;
+	}
+	.clear {
+		clear: both;
+	}
+
+
+/* Header Hour Row */
+	#wrapper {
+		width: 982px;
+		margin: auto;
+	}
+	#header-row {
+		width: 825px;
+		height: 200px;
+		margin: auto;
+		margin-left: 158px;
+		overflow: hidden;
+		text-align: center;
+		float: left;
+		position: absolute;
+	}
+	.hours {
+		display: table-cell;
+		border-right:1px solid black;
+	}
+	.hours li {
+		padding: 5px;
+		line-height: 20px;
+		height: 20px;
+		font-size: 10px;
+		font-weight: bold;
+	}
+	.first {
+		text-align: left !important;
+		position: relative;
+		float: left;
+		background-color: white;
+		width: 157px;
+	}
+	.title-row {
+		text-align: center;
+		border-bottom: 1px solid black;
+	}
+
+/* Schedule Hours */
+	#admin {
+		width: 99.9%;
+	}
+	.schHour {
+		margin: auto;
+		width: 100%;
+		text-align: center;
+		display: table;
+	}
+	.schHour li {
+		border-left: 1px solid black;
+		display: table-cell;
+		line-height: 20px;
+		width: auto;
+		height: 20px;
+		text-align: center;
+		font-size: 10px;
+		position: relative;
+	}
+	.half {
+		cursor: pointer;
+		text-align: center;
+	}
+/* Schedule Values */
+	.c {
+		background-color: blue !important;
+		color: white;
+	}
+	.c:after {
+		content: "C";
+	}
+	.o {
+	}
+	.o:after {
+		content: "-";
+	}
+	.p {
+		background-color: green !important;
+		color: white;
+	}
+	.p:after {
+		content: "P";
+	}
+	.l {
+		background-color: black !important;		
+		color: white;
+	}
+	.l:after {
+		content: "L";
+	}
+	.b {
+		background-color: red !important;
+		color: white;
+	}
+	.b:after {
+		content: "B";
+	}
+	.m {
+		background-color: pink !important;
+		color: white;
+	}
+	.m:after {
+		content: "M";
+	}
+
+/* Menu Options */
+	.options {
+		text-align: center;
+		height: 10px;
+		color: #333;
+		padding: 10px;
+		font-weight: normal;
+	}
+	
+	
+/* Footer */
+	.footer {
+		bottom: 0;
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		padding: 30px 0 30px 0;
+		font-weight: bold;
+	}
+	
+
+/* Date Picker */
+	#datepicker {
+		font-size: 12px;
+		font-family:"Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+		text-align: center;
+		margin-top:-3px;
+		width: 	60px;
+		border: 0;
+		cursor: pointer;
+	}
+	#datepicker::-webkit-input-placeholder { /* WebKit browsers */
+		color:    #5b80b2;
+	}
+	#datepicker:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color:   #5b80b2;
+		opacity:  1;
+	}
+	#datepicker::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color:    #5b80b2;
+		opacity:  1;
+	}
+	#datepicker:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color:    #5b80b2;
+	}
+	#datepicker:hover::-webkit-input-placeholder { /* WebKit browsers */
+		color:    #036;
+	}
+	#datepicker:hover:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color:   #036;
+		opacity:  1;
+	}
+	#datepicker:hover::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color:    #036;
+		opacity:  1;
+	}
+	#datepicker:hover:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color:    #036;
+	}

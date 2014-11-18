@@ -1,0 +1,33 @@
+Have the defaults not be time sensitive.
+
+Sean enters the following:
+
+Date (selects date), Name (Drop Down), Start Time (input - Parses regular and military time), Schedule (Graphical Drop Down).
+
+Take the start time, and count the number of o's from 12:00 to the start time (for instance, there are 16 o's before 8AM). Create schedule string by inserting schedule at start time. Append o's till 12:00.
+
+
+create a time tracker which highlights the current hour/time.
+
+Update the way the half-hours are displayed to do a gradient shift half way through the hour if the schedule is a half hour schedule. Meaning the box would go green-blue in one hour segment if the person goes from phones to chats.
+
+Put a row for the times under the bar in which a person is working, so it would be like: P - P / :00 - :30. Or do like a ruler at the top/bottom of the cell which has an indicator in the middle for the half hour. Could be awesome if there's a line over everything which increments every 5 minutes for the new time... kind of like a play-progress cursor in red.
+
+
+
+Template:
+
+res
+
+
+Hello $contacts.name.first,
+
+Thank you for contacting us.
+
+
+Please let us know if you have any questions. Have a great day!
+
+Best Regards,
+
+Chrys C.
+Wiley Technical Support
